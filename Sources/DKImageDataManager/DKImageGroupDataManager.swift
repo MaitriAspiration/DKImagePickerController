@@ -25,15 +25,18 @@ protocol DKImageGroupDataManagerObserver {
  a copy of the configuration object is made - you cannot modify the configuration
  of a manager after it has been created.
  */
+let deletedAlbum = PHAssetCollectionSubtype(rawValue: 1000000201)
 @objc
 public class DKImageGroupDataManagerConfiguration: NSObject, NSCopying {
     
     /// The types of PHAssetCollection to display in the picker.
+    /// 
     public var assetGroupTypes: [PHAssetCollectionSubtype] = [
         .smartAlbumUserLibrary,
         .smartAlbumVideos,
         .smartAlbumFavorites,
-        .albumRegular
+        .albumRegular,
+        deletedAlbum!
     ]
     
     /// A predicate that specifies which properties to select results by and that also specifies any constraints on selection.
